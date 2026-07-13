@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         mysql_user = 'root'
+        mysql_password = 'root123'
     }
         stages{
             stage('Build'){
@@ -23,14 +24,15 @@ pipeline{
                 }
                 steps{
                     echo 'Testing the application...'
-                    echo "This is Git Branch Name : ${GIT_BRANCH}"
-                     echo "This is Mysql User Name : ${params.mysql_user}"
+                    echo "This is Git Branch Name : ${env.GIT_BRANCH}"
+                     echo "This is Mysql User Name : ${env.mysql_user}"
+                     echo "This is Mysql Password : ${mysql_password}"
                 }
             }
             stage('Deploy'){
                 steps{
                     echo 'Deploying the application...'
-                    echo "This is Git Commit ID : ${GIT_COMMIT}"
+                    echo "This is Git Commit ID : ${env.GIT_COMMIT}"
                 }
             }
         }
