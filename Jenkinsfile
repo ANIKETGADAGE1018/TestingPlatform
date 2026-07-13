@@ -45,7 +45,7 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'Myusername',
+                        credentialsId: 'myusername',
                         usernameVariable: 'GLOBAL_USERNAME',
                         passwordVariable: 'GLOBAL_PASSWORD'
                     )
