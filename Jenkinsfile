@@ -3,6 +3,8 @@ pipeline{
     environment{
         mysql_user = 'root'
         mysql_password = 'root123'
+        Global_Credential = credentials('Global_Credential')
+        System_Credential = credentials('System_Credential')
     }
         stages{
             stage('Build'){
@@ -25,14 +27,16 @@ pipeline{
                 steps{
                     echo 'Testing the application...'
                     echo "This is Git Branch Name : ${env.GIT_BRANCH}"
-                     echo "This is Mysql User Name : ${env.mysql_user}"
-                     echo "This is Mysql Password : ${mysql_password}"
+                     echo "This is Mysql User Name : ${mysql_user}"
+                     echo "This is Mysql Password : ${env.mysql_password}"
                 }
             }
             stage('Deploy'){
                 steps{
                     echo 'Deploying the application...'
                     echo "This is Git Commit ID : ${env.GIT_COMMIT}"
+                    echo "This is Global Credential : ${env.Global_Credential}"
+                    echo "This is System Credential : ${env.System_Credential}"
                 }
             }
         }
