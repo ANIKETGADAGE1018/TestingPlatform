@@ -1,13 +1,9 @@
-def Build(){
-    echo "This is deployment script"
+def Test() {
+    echo "Executing Test Method"
 }
 
-def Test(){
-    echo "This is testing script"
-}
-
-def Deploy(){
-    echo "This is deployment script"
+def Deploy() {
+    echo "Executing Deploy Method"
 }
 
 return this
