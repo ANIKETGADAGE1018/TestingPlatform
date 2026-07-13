@@ -4,6 +4,7 @@ pipeline {
     environment {
         mysql_user = 'root'
         mysql_password = 'root123'
+        Global_Username = credentials('global')
     }
 
     stages {
@@ -33,6 +34,7 @@ pipeline {
 
                 // Avoid printing passwords in production
                 echo "This is MySQL Password: ${env.mysql_password}"
+                echo "This is Global Username : ${Global_Username}"
             }
         }
 
