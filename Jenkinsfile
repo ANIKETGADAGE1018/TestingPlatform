@@ -34,7 +34,8 @@ pipeline {
 
                 // Avoid printing passwords in production
                 echo "This is MySQL Password: ${env.mysql_password}"
-                echo "This is Global Username : ${Global_Username}"
+                echo "This is Global Username : ${Global_Username_USR}"
+                echo "This is Global Username : ${Global_Username_PSW}"
             }
         }
 
