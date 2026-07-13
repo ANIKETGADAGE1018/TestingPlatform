@@ -27,8 +27,8 @@ pipeline{
                 steps{
                     echo 'Testing the application...'
                     echo "This is Git Branch Name : ${env.GIT_BRANCH}"
-                     echo "This is Mysql User Name : ${mysql_user}"
-                     echo "This is Mysql Password : ${env.mysql_password}"
+                     echo "This is Mysql User Name : ${env.mysql_user}"
+                     echo "This is Mysql Password : ${mysql_password}"
                 }
             }
             stage('Deploy'){
