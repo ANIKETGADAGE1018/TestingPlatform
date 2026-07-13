@@ -30,12 +30,16 @@ pipeline{
                 }
             }
             stage('Deploy'){
-                withcredentials([usernamePassword(credentialsId: 'Global_Credential', usernameVariable: 'GLOBAL_USERNAME', passwordVariable: 'GLOBAL_PASSWORD')]){
-                    echo "This is Global Username : ${env.GLOBAL_USERNAME}"
-                    echo "This is Global Password : ${env.GLOBAL_PASSWORD}"
+                when{
+                    expression{
+                        return BRANCH_NAME == 'main'
+                    }
                 }
-
                 steps{
+                     withcredentials([usernamePassword(credentialsId: 'Global_Credential', usernameVariable: 'GLOBAL_USERNAME', passwordVariable: 'GLOBAL_PASSWORD')]){
+                        echo "This is Global Username : ${env.GLOBAL_USERNAME}"
+                        echo "This is Global Password : ${env.GLOBAL_PASSWORD}"
+                    }
                     echo 'Deploying the application...'
                     echo "This is Git Commit ID : ${env.GIT_COMMIT}"
                 }
