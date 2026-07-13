@@ -4,16 +4,19 @@ pipeline{
             stage('Build'){
                 steps{
                     echo 'Building the application...'
+                    echo "This is Branch Name : ${BRANCH_NAME}"
                 }
             }
             stage('test'){
                 steps{
                     echo 'Testing the application...'
+                    echo "This is Git Branch Name : ${GIT_BRANCH}"
                 }
             }
             stage('Deploy'){
                 steps{
                     echo 'Deploying the application...'
+                    echo "This is Git Commit ID : ${GIT_COMMIT}"
                 }
             }
         }
