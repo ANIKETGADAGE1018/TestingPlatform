@@ -2,12 +2,22 @@ pipeline{
     agent any
         stages{
             stage('Build'){
+                when{
+                    expression{
+                        return BRANCH_NAME == 'Develop'
+                    }
+                }
                 steps{
                     echo 'Building the application...'
                     echo "This is Branch Name : ${BRANCH_NAME}"
                 }
             }
             stage('test'){
+                when{
+                    expression{
+                        return BRANCH_NAME == 'main'
+                    }
+                }
                 steps{
                     echo 'Testing the application...'
                     echo "This is Git Branch Name : ${GIT_BRANCH}"
