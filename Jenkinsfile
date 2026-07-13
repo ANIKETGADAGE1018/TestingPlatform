@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        mysql_user = 'root'
+    }
         stages{
             stage('Build'){
                 when{
@@ -21,6 +24,7 @@ pipeline{
                 steps{
                     echo 'Testing the application...'
                     echo "This is Git Branch Name : ${GIT_BRANCH}"
+                     echo "This is Mysql User Name : ${params.mysql_user}"
                 }
             }
             stage('Deploy'){
